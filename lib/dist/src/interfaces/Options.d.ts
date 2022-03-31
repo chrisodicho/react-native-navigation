@@ -4,7 +4,7 @@ declare type FontFamily = string;
 declare type FontStyle = 'normal' | 'italic';
 declare type FontWeightIOS = 'normal' | 'ultralight' | 'thin' | 'light' | 'regular' | 'medium' | 'semibold' | 'demibold' | 'extrabold' | 'ultrabold' | 'bold' | 'heavy' | 'black';
 declare type FontWeight = 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | FontWeightIOS;
-export declare type LayoutOrientation = 'portrait' | 'landscape';
+export declare type LayoutOrientation = 'portrait' | 'landscape' | 'sensor' | 'sensorLandscape' | 'sensorPortrait';
 declare type AndroidDensityNumber = number;
 export declare type SystemItemIcon = 'done' | 'cancel' | 'edit' | 'save' | 'add' | 'flexibleSpace' | 'fixedSpace' | 'compose' | 'reply' | 'action' | 'organize' | 'bookmarks' | 'search' | 'refresh' | 'stop' | 'camera' | 'trash' | 'play' | 'pause' | 'rewind' | 'fastForward' | 'undo' | 'redo';
 export declare type Interpolation = {
@@ -850,10 +850,6 @@ export interface ImageSystemSource {
 }
 export declare type ImageResource = ImageSourcePropType | string | ImageSystemSource;
 export interface OptionsBottomTab {
-    /**
-     * Unique id in order to be found in the view hierarchy
-     */
-    id?: string;
     dotIndicator?: DotIndicatorOptions;
     /**
      * Set the text to display below the icon
@@ -1019,26 +1015,6 @@ export interface OverlayOptions {
      * Set this to true if your Overlay contains a TextInput.
      */
     handleKeyboardEvents?: boolean;
-    /**
-     * Attach overlay to anchor view in a certain layer of layout as a tooltip
-     */
-    attach?: {
-        /**
-         * layout id to look for to add as a layer
-         * which can be componentId or stackId or bottomTabsId.
-         */
-        layoutId: string;
-        anchor?: {
-            /**
-             * Anchor view id, TopBar Button, Title Component, BottomTab.
-             */
-            id: string;
-            /**
-             * The anchor view side that the tooltip will be displayed.
-             */
-            gravity: 'top' | 'left' | 'right' | 'bottom';
-        };
-    };
 }
 export interface ModalOptions {
     /**
