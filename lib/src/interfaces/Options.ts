@@ -33,7 +33,12 @@ type FontWeight =
   | '800'
   | '900'
   | FontWeightIOS;
-export type LayoutOrientation = 'portrait' | 'landscape';
+export type LayoutOrientation =
+  | 'portrait'
+  | 'landscape'
+  | 'sensor'
+  | 'sensorLandscape'
+  | 'sensorPortrait';
 type AndroidDensityNumber = number;
 export type SystemItemIcon =
   | 'done'
@@ -932,11 +937,6 @@ export interface ImageSystemSource {
 export type ImageResource = ImageSourcePropType | string | ImageSystemSource;
 
 export interface OptionsBottomTab {
-  /**
-   * Unique id in order to be found in the view hierarchy
-   */
-  id?: string;
-
   dotIndicator?: DotIndicatorOptions;
 
   /**
@@ -1106,27 +1106,6 @@ export interface OverlayOptions {
    * Set this to true if your Overlay contains a TextInput.
    */
   handleKeyboardEvents?: boolean;
-
-  /**
-   * Attach overlay to anchor view in a certain layer of layout as a tooltip
-   */
-  attach?: {
-    /**
-     * layout id to look for to add as a layer
-     * which can be componentId or stackId or bottomTabsId.
-     */
-    layoutId: string;
-    anchor?: {
-      /**
-       * Anchor view id, TopBar Button, Title Component, BottomTab.
-       */
-      id: string;
-      /**
-       * The anchor view side that the tooltip will be displayed.
-       */
-      gravity: 'top' | 'left' | 'right' | 'bottom';
-    };
-  };
 }
 
 export interface ModalOptions {
